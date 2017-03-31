@@ -14,6 +14,12 @@
             or normalize-space(.)='' and following-sibling::node()[1][local-name()='lb' and (@break='no' or @type='inWord')]]">
             <xsl:value-of select="true()"/>
          </xsl:when>
+         <xsl:when test="$ww-context/following-sibling::node()[1][local-name()='add'
+            or normalize-space(.)='' and following-sibling::node()[1][local-name()='add']
+            and $ww-context/following-sibling::node()[2][(local-name()='lb' and (@break='no' or @type='inWord'))
+            or normalize-space(.)='' and following-sibling::node()[2][local-name()='lb' and (@break='no' or @type='inWord')]]]">
+            <xsl:value-of select="true()"/>
+         </xsl:when>
          <xsl:otherwise>
             <xsl:value-of select="false()"/>
          </xsl:otherwise>
