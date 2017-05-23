@@ -111,7 +111,13 @@
                   </xsl:choose>
                </xsl:when>              
                <xsl:otherwise>
-                  <br id="a{$div-loc}l{$line}"/>
+                  <br id="a{$div-loc}l{$line}">
+                     <xsl:if test="@rend">
+                        <xsl:attribute name="class">
+                           <xsl:value-of select="@rend"/>
+                        </xsl:attribute>
+                     </xsl:if>                     
+                  </br>
                </xsl:otherwise>
             </xsl:choose>
             <xsl:choose>
