@@ -26,7 +26,7 @@
                </xsl:choose>
          </xsl:when>
          <xsl:when
-             test="@rend = 'diaeresis' or @rend = 'grave' or @rend = 'acute' or @rend = 'asper' or @rend = 'lenis' or @rend = 'circumflex'">
+             test="@rend = 'supraline' or @rend = 'supraline' or @rend = 'diaeresis' or @rend = 'grave' or @rend = 'acute' or @rend = 'asper' or @rend = 'lenis' or @rend = 'circumflex'">
              <xsl:apply-templates/>
              <xsl:choose>
                  <!-- if context is inside the app-part of an app-like element, print diacritic in parens here -->

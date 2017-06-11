@@ -48,7 +48,7 @@
       </xsl:variable>
       <xsl:choose>
          <xsl:when test="not(ancestor::t:choice or ancestor::t:subst or ancestor::t:app or
-            ancestor::t:hi[@rend=('diaeresis','grave','acute','asper','lenis','circumflex')])">
+            ancestor::t:hi[@rend=('supraline','diaeresis','grave','acute','asper','lenis','circumflex')])">
             <!-- either <br/> in htm-tpl-apparatus or \r\n in txt-tpl-apparatus -->
             <xsl:call-template name="lbrk-app"/>
             <!-- in htm-tpl-apparatus.xsl or txt-tpl-apparatus.xsl -->
@@ -1238,6 +1238,15 @@
       <!-- Determines the value of diacritical <hi> values -->
       <!-- Used by hirend -->
       <xsl:choose>
+         <xsl:when test="@rend = 'supraline'">
+            <xsl:call-template name="trans-string"/>
+            <xsl:if test="t:gap">
+               <xsl:if test="t:gap[@reason='lost']"><xsl:text>[</xsl:text></xsl:if>
+               <xsl:text>&#xa0;&#xa0;&#x323;</xsl:text>
+            </xsl:if>
+            <xsl:text>&#x304;&#x323;</xsl:text>
+            <xsl:if test="t:gap[@reason='lost']"><xsl:text>]</xsl:text></xsl:if>
+         </xsl:when>
          <xsl:when test="@rend = 'diaeresis'">
             <xsl:choose>
                <xsl:when test="child::t:hi[@rend = 'acute']">
